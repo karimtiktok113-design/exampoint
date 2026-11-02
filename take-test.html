@@ -1,16 +1,19 @@
 <!DOCTYPE html><html lang="en"><head><meta charset="utf-8">
 <meta name="viewport" content="width=device-width,initial-scale=1">
 <meta name="google-site-verification" content="tJOxVSCCy24X8TXwtnaK2N1J2AjmhAUn1FTDTk6GmMM">
+<link rel="icon" href="/favicon.svg" type="image/svg+xml">
+<link rel="icon" href="/favicon.png" type="image/png" sizes="64x64">
+<link rel="apple-touch-icon" href="/apple-touch-icon.png">
 <title>Take a Test — PPSC Point</title><meta name="description" content="Free online MCQ test with instant score.">
 <link rel="stylesheet" href="/assets/style.css">
 <script>try{var t=localStorage.getItem('mcq-theme');if(t)document.documentElement.setAttribute('data-theme',t)}catch(e){}</script>
 </head><body>
 <header class="site"><div class="hwrap">
-<a class="logo" href="/">PPSC <b>Point</b><small>Pakistan&#x27;s MCQs Website for Test Preparation</small></a>
+<a class="logo" href="/"><svg class="lmark" width="38" height="38" viewBox="0 0 48 48" aria-hidden="true"><rect x="1.5" y="1.5" width="45" height="45" rx="11" fill="#1a3a75" stroke="#3d5a94" stroke-width="2"/><text x="21.5" y="31" font-family="Arial,Helvetica,sans-serif" font-size="17" font-weight="800" fill="#ffffff" text-anchor="middle">PP</text><circle cx="36" cy="14" r="4" fill="#d97706"/></svg><span class="lt"><span class="lname">PPSC <b>Point</b></span><small>Pakistan&#x27;s MCQs Website for Test Preparation</small></span></a>
 <form class="searchbar" action="/search.html" method="get"><input name="q" placeholder="Search MCQs… (e.g. largest planet)" aria-label="Search MCQs"><button type="submit">🔍</button></form>
 <button class="tgl" onclick="toggleTheme()" title="Dark / Light mode">🌙</button>
 </div></header>
-<nav class="main"><div class="nwrap"><a href="/">🏠 Home</a><a href="/important-mcqs/english-mcqs">English</a><a href="/important-mcqs/pak-study">Pak Study</a><a href="/important-mcqs/islamic-studies-mcqs">Islamic Studies</a><a href="/important-mcqs/maths-mcqs">Mathematics</a><a href="/important-mcqs/general-knowledge-mcqs">General Knowledge</a><a href="/important-mcqs/everyday-science-mcqs">Everyday Science</a><a href="/important-mcqs/current-affairs-mcqs">Current Affairs</a><a href="/important-mcqs/urdu-mcqs">Urdu</a><a href="/important-mcqs/computer-mcqs">Computer</a><a href="/take-test.html">📝 Take Test</a></div></nav>
+<nav class="main"><div class="nwrap"><a href="/">🏠 Home</a><a href="/important-mcqs/english-mcqs">English</a><a href="/important-mcqs/pak-study">Pak Study</a><a href="/important-mcqs/islamic-studies-mcqs">Islamic Studies</a><a href="/important-mcqs/maths-mcqs">Mathematics</a><a href="/important-mcqs/general-knowledge-mcqs">General Knowledge</a><a href="/important-mcqs/everyday-science-mcqs">Everyday Science</a><a href="/important-mcqs/current-affairs-mcqs">Current Affairs</a><a href="/important-mcqs/urdu-mcqs">Urdu</a><a href="/important-mcqs/computer-mcqs">Computer</a><a href="/take-test.html" class="tst act">📝 Take Test</a></div></nav>
 <main><h1 style="font-size:24px">📝 Take a Test</h1>
 <p style="color:var(--mut)">Pick a subject — you will get 10 random MCQs. Answer all and see your score instantly.</p>
 <p><select id="tsubj"><option value="english-mcqs">English (17,932 MCQs)</option><option value="pak-study">Pak Study (11,014 MCQs)</option><option value="islamic-studies-mcqs">Islamic Studies (4,680 MCQs)</option><option value="maths-mcqs">Mathematics (9,393 MCQs)</option><option value="general-knowledge-mcqs">General Knowledge (4,926 MCQs)</option><option value="everyday-science-mcqs">Everyday Science (3,845 MCQs)</option><option value="current-affairs-mcqs">Current Affairs (3,090 MCQs)</option><option value="urdu-mcqs">Urdu (2,556 MCQs)</option><option value="computer-mcqs">Computer (1,203 MCQs)</option></select> <button class="bigbtn gold" onclick="startTest()">Start Test</button></p>
@@ -32,7 +35,7 @@ function finishTest(){var sc=0;QS.forEach(function(x,qi){var box=document.getEle
  document.getElementById('tresult').innerHTML='<div class="expbox"><h3>Your Score: '+sc+' / '+QS.length+'</h3><p>Correct answers are shown in green above. Keep practicing topic-wise to improve.</p></div>';window.scrollTo(0,document.body.scrollHeight);}
 </script></main>
 <footer class="site"><div class="fwrap">
-<div class="fcol fbrand"><span class="flogo">PPSC <b>Point</b></span>
+<div class="fcol fbrand"><span class="flogo"><svg class="lmark" width="26" height="26" viewBox="0 0 48 48" aria-hidden="true"><rect x="1.5" y="1.5" width="45" height="45" rx="11" fill="#1a3a75" stroke="#3d5a94" stroke-width="2"/><text x="21.5" y="31" font-family="Arial,Helvetica,sans-serif" font-size="17" font-weight="800" fill="#ffffff" text-anchor="middle">PP</text><circle cx="36" cy="14" r="4" fill="#d97706"/></svg>PPSC <b>Point</b></span>
 <p>Free online test preparation for Pakistan — subject-wise and topic-wise MCQs from past papers, every question with a verified answer.</p>
 <span class="fstat">58,639 MCQs • 9 Subjects • 100% Free</span></div>
 <div class="fcol"><div class="fh">Subjects</div><a href="/important-mcqs/english-mcqs/">English MCQs</a><a href="/important-mcqs/pak-study/">Pak Study MCQs</a><a href="/important-mcqs/islamic-studies-mcqs/">Islamic Studies MCQs</a><a href="/important-mcqs/maths-mcqs/">Mathematics MCQs</a><a href="/important-mcqs/general-knowledge-mcqs/">General Knowledge MCQs</a><a href="/important-mcqs/everyday-science-mcqs/">Everyday Science MCQs</a><a href="/sitemap/">All Subjects &amp; Topics →</a></div>
