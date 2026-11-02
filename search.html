@@ -1,0 +1,32 @@
+<!DOCTYPE html><html lang="en"><head><meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>Search MCQs — MCQPoint</title><meta name="description" content="Search all MCQs by keyword.">
+<link rel="stylesheet" href="/assets/style.css">
+<script>try{var t=localStorage.getItem('mcq-theme');if(t)document.documentElement.setAttribute('data-theme',t)}catch(e){}</script>
+</head><body>
+<header class="site"><div class="hwrap">
+<a class="logo" href="/">MCQPoint<small>Pakistan&#x27;s MCQs Website for Test Preparation</small></a>
+<form class="searchbar" action="/search.html" method="get"><input name="q" placeholder="Search MCQs… (e.g. largest planet)" aria-label="Search MCQs"><button type="submit">🔍</button></form>
+<button class="tgl" onclick="toggleTheme()" title="Dark / Light mode">🌙</button>
+</div></header>
+<nav class="main"><div class="nwrap"><a href="/">🏠 Home</a><a href="/important-mcqs/english-mcqs">English</a><a href="/important-mcqs/pak-study">Pak Study</a><a href="/important-mcqs/islamic-studies-mcqs">Islamic Studies</a><a href="/important-mcqs/maths-mcqs">Mathematics</a><a href="/important-mcqs/general-knowledge-mcqs">General Knowledge</a><a href="/important-mcqs/everyday-science-mcqs">Everyday Science</a><a href="/important-mcqs/current-affairs-mcqs">Current Affairs</a><a href="/important-mcqs/urdu-mcqs">Urdu</a><a href="/important-mcqs/computer-mcqs">Computer</a><a href="/take-test.html">📝 Take Test</a></div></nav>
+<main><h1 style="font-size:24px">Search MCQs</h1>
+<p style="color:var(--mut)">Type any question or keyword — searching all 58,639 MCQs.</p>
+<form class="searchbar" onsubmit="return doSearch(event)" style="max-width:640px"><input id="sq" placeholder="e.g. largest planet of solar system"><button type="submit">🔍</button></form>
+<p id="sstat" style="color:var(--mut);font-size:14px"></p><div id="sres"></div>
+<script>
+var IDX=null;var params=new URLSearchParams(location.search);var q0=params.get('q')||'';
+document.getElementById('sq').value=q0;
+function E(t){var d=document.createElement('div');d.textContent=t;return d.innerHTML;}
+function run(q){if(!IDX)return;q=q.trim().toLowerCase();if(q.length<3){document.getElementById('sstat').textContent='Type at least 3 characters.';return;}
+ var hits=IDX.filter(function(x){return x[1].toLowerCase().indexOf(q)>-1;}).slice(0,50);
+ document.getElementById('sstat').textContent=hits.length+' result(s) for "'+q+'" (showing first '+hits.length+')';
+ document.getElementById('sres').innerHTML=hits.map(function(x){return '<div class="rel"><a href="/mcqs/'+x[0]+'/'+x[3]+'">'+E(x[1])+'</a></div>';}).join('')||'<p>No match found.</p>';}
+function doSearch(e){e.preventDefault();run(document.getElementById('sq').value);return false;}
+fetch('/assets/search-index.json').then(function(r){return r.json()}).then(function(d){IDX=d;if(q0)run(q0);});
+</script></main>
+<footer class="site"><div class="fwrap">
+<div><b style="color:#fff">MCQPoint</b><br><span style="font-size:13.5px">58,639 MCQs with verified answers for FPSC, PPSC, NTS, CSS and other competitive exams.</span></div>
+<div><a href="/about-us/">About Us</a><a href="/contact/">Contact Us</a><a href="/privacy-policy/">Privacy Policy</a><a href="/terms/">Terms &amp; Conditions</a><a href="/disclaimer/">Disclaimer</a><a href="/dmca/">DMCA</a><a href="/sitemap/">Sitemap</a></div>
+</div></footer>
+<script src="/assets/app.js"></script></body></html>

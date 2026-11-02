@@ -1,0 +1,37 @@
+<!DOCTYPE html><html lang="en"><head><meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>Take a Test — MCQPoint</title><meta name="description" content="Free online MCQ test with instant score.">
+<link rel="stylesheet" href="/assets/style.css">
+<script>try{var t=localStorage.getItem('mcq-theme');if(t)document.documentElement.setAttribute('data-theme',t)}catch(e){}</script>
+</head><body>
+<header class="site"><div class="hwrap">
+<a class="logo" href="/">MCQPoint<small>Pakistan&#x27;s MCQs Website for Test Preparation</small></a>
+<form class="searchbar" action="/search.html" method="get"><input name="q" placeholder="Search MCQs… (e.g. largest planet)" aria-label="Search MCQs"><button type="submit">🔍</button></form>
+<button class="tgl" onclick="toggleTheme()" title="Dark / Light mode">🌙</button>
+</div></header>
+<nav class="main"><div class="nwrap"><a href="/">🏠 Home</a><a href="/important-mcqs/english-mcqs">English</a><a href="/important-mcqs/pak-study">Pak Study</a><a href="/important-mcqs/islamic-studies-mcqs">Islamic Studies</a><a href="/important-mcqs/maths-mcqs">Mathematics</a><a href="/important-mcqs/general-knowledge-mcqs">General Knowledge</a><a href="/important-mcqs/everyday-science-mcqs">Everyday Science</a><a href="/important-mcqs/current-affairs-mcqs">Current Affairs</a><a href="/important-mcqs/urdu-mcqs">Urdu</a><a href="/important-mcqs/computer-mcqs">Computer</a><a href="/take-test.html">📝 Take Test</a></div></nav>
+<main><h1 style="font-size:24px">📝 Take a Test</h1>
+<p style="color:var(--mut)">Pick a subject — you will get 10 random MCQs. Answer all and see your score instantly.</p>
+<p><select id="tsubj"><option value="english-mcqs">English (17,932 MCQs)</option><option value="pak-study">Pak Study (11,014 MCQs)</option><option value="islamic-studies-mcqs">Islamic Studies (4,680 MCQs)</option><option value="maths-mcqs">Mathematics (9,393 MCQs)</option><option value="general-knowledge-mcqs">General Knowledge (4,926 MCQs)</option><option value="everyday-science-mcqs">Everyday Science (3,845 MCQs)</option><option value="current-affairs-mcqs">Current Affairs (3,090 MCQs)</option><option value="urdu-mcqs">Urdu (2,556 MCQs)</option><option value="computer-mcqs">Computer (1,203 MCQs)</option></select> <button class="bigbtn gold" onclick="startTest()">Start Test</button></p>
+<div id="tquiz"></div><div id="tresult"></div>
+<script src="/assets/config.js"></script><script>
+var QS=[];
+function E(t){var d=document.createElement('div');d.textContent=t;return d.innerHTML;}
+function startTest(){PICKS={};var s=document.getElementById('tsubj').value;
+ fetch('/assets/data/'+s+'.json').then(function(r){return r.json()}).then(function(d){
+  var pool=d.slice();QS=[];for(var i=0;i<10&&pool.length;i++){QS.push(pool.splice(Math.floor(Math.random()*pool.length),1)[0]);}
+  document.getElementById('tresult').innerHTML='';
+  document.getElementById('tquiz').innerHTML=QS.map(function(x,qi){
+   var oh=x[2].map(function(o){return '<button class="opt" data-k="'+o[0]+'" onclick="pick(this,'+qi+')"><span class="ol">'+o[0].toUpperCase()+'.</span>'+E(o[1])+'</button>';}).join('');
+   return '<article class="mcq" id="tq'+qi+'"><h3><span class="qn">'+(qi+1)+'.</span>'+E(x[1])+'</h3><div class="opts">'+oh+'</div></article>';}).join('')
+   +'<p><button class="bigbtn" onclick="finishTest()">Submit Test</button></p>';});}
+var PICKS={};
+function pick(b,qi){var box=document.getElementById('tq'+qi);box.querySelectorAll('.opt').forEach(function(o){o.style.outline='';});b.style.outline='3px solid var(--acc)';PICKS[qi]=b.dataset.k;}
+function finishTest(){var sc=0;QS.forEach(function(x,qi){var box=document.getElementById('tq'+qi);box.querySelectorAll('.opt').forEach(function(o){if(o.dataset.k===x[3])o.classList.add('right');else if(PICKS[qi]===o.dataset.k)o.classList.add('wrong');});if(PICKS[qi]===x[3])sc++;});
+ document.getElementById('tresult').innerHTML='<div class="expbox"><h3>Your Score: '+sc+' / '+QS.length+'</h3><p>Correct answers are shown in green above. Keep practicing topic-wise to improve.</p></div>';window.scrollTo(0,document.body.scrollHeight);}
+</script></main>
+<footer class="site"><div class="fwrap">
+<div><b style="color:#fff">MCQPoint</b><br><span style="font-size:13.5px">58,639 MCQs with verified answers for FPSC, PPSC, NTS, CSS and other competitive exams.</span></div>
+<div><a href="/about-us/">About Us</a><a href="/contact/">Contact Us</a><a href="/privacy-policy/">Privacy Policy</a><a href="/terms/">Terms &amp; Conditions</a><a href="/disclaimer/">Disclaimer</a><a href="/dmca/">DMCA</a><a href="/sitemap/">Sitemap</a></div>
+</div></footer>
+<script src="/assets/app.js"></script></body></html>
