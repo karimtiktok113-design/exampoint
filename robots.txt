@@ -1,4 +1,4 @@
 User-agent: *
 Allow: /
 
-Sitemap: https://exampoint-green.vercel.app/sitemap.xml
+Sitemap: https://www.ppscpoint.site/sitemap.xml
